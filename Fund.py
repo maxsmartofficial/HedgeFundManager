@@ -43,7 +43,7 @@ class Fund:
         # Find best stocks
         # If there's any money left, buy
         bestStock = None
-        bestValue = -inf
+        bestValue = -math.inf
         for s in self.cache_stockEstimates:
             stockEstimate = self.cache_stockEstimates[s]
             profit = stockEstimate[0]
@@ -53,8 +53,12 @@ class Fund:
             value = profit * self.profitWeight - risk * self.riskWeight
             
             if value > bestValue:
+
                 bestValue = value
                 bestStock = s
+
+        if bestStock == None:
+            return()
 
         amountToBuy = int(self.money / bestStock.price)
 
@@ -69,5 +73,7 @@ class Fund:
             amount = self.stocks[s]
             price = s.price
             total += amount * price
+
+        total += self.money
         
-        return(price)
+        return(total)

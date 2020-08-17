@@ -1,4 +1,5 @@
-
+from Fund import Fund
+from Stock import Stock
 
 class World:
     def __init__(self, num_stocks, num_funds):
@@ -14,12 +15,12 @@ class World:
             f = Fund()
             self.funds.append(f)
 
-    def run(days):
+    def run(self, days):
         """Run simulation for a given number of days"""
         for i in range(days):
             self.nextDay()
 
-    def nextDay():
+    def nextDay(self):
         for s in self.stocks:
             s.nextDay()
 
