@@ -59,6 +59,8 @@ class Fund:
 
         if bestStock == None:
             return()
+        if self.money < 10000:#Basically day > 1
+            return()
 
         amountToBuy = int(self.money / bestStock.price)
 
