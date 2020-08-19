@@ -24,8 +24,8 @@ class Fund:
         if stock in self.cache_stockEstimates:
             return(self.cache_stockEstimates[stock])
         else:
-            estimatedProfit = random.normal(stock.profit, self.profitSkill / 10)
-            estimatedRisk = random.normal(stock.risk, self.riskSkill / 10)
+            estimatedProfit = random.normal(stock.profit, (10 - self.profitSkill) / 10)
+            estimatedRisk = random.normal(stock.risk, (10 - self.riskSkill) / 10)
 
             result = (estimatedProfit, estimatedRisk)
             
